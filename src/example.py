@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-class PlayGround(object):
+class HelloWorld(object):
 
     """Docstring for PlayGround. """
 
@@ -12,12 +12,13 @@ class PlayGround(object):
 
         """
 
-        self.id = id
-        self.name = name
+        self.idx = id
+        self.namex = name
 
     def play(self):
-        print('id: {}, name: {}', self.id, self.name)
+        print('idx: {}, namex: {}', self.idx, self.namex)
 
 
 if __name__ == '__main__':
+    HelloWorld(1, '12')
     print('hello world')
