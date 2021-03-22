@@ -92,7 +92,6 @@ jobs:
           tool_name: checkstyle
   flake8-lint:
     runs-on: ubuntu-latest
-    name: Lint
     steps:
       - name: Check out source repository
         uses: actions/checkout@v2
@@ -104,3 +103,4 @@ jobs:
         uses: reviewdog/action-flake8@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
