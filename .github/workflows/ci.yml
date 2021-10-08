@@ -106,3 +106,9 @@ jobs:
           reporter: github-pr-review
           level: info
           filter_mode: file
+  exit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run exit command
+        run: |
+          cd pwd || exit
