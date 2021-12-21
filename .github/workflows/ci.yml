@@ -106,9 +106,27 @@ jobs:
           reporter: github-pr-review
           level: info
           filter_mode: file
-  exit-test:
+
+  any-previouse-job-fail:
     runs-on: ubuntu-latest
     steps:
-      - name: run exit command
+      - uses: actions/checkout@v2
+
+      - name: failed1
+        id: failed1
         run: |
-          cd pwd || exit
+          echo "I failed"
+          exit 1
+      - name: failed2
+        id: failed2
+        run: |
+          echo "I failed too"
+          exit 2
+      - name: always
+        if: always()
+        run: |
+          echo failed1: ${{ steps.failed1.outcome }}, failed2: ${{ steps.failed2.outcome }}
+      - name: collect
+        if: steps.failed1.outcome != 'success' || steps.failed2.outcome != 'success'
+        run: |
+          echo "wow~"
