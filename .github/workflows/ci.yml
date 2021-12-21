@@ -126,6 +126,7 @@ jobs:
         if: always()
         run: |
           echo failed1: ${{ steps.failed1.outcome }}, failed2: ${{ steps.failed2.outcome }}
+          echo "if condition: ${{ steps.failed1.outcome != 'success' || steps.failed2.outcome != 'success' }}"
       - name: collect
         if: steps.failed1.outcome != 'success' || steps.failed2.outcome != 'success'
         run: |
