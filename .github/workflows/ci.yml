@@ -158,3 +158,8 @@ jobs:
       - name: env variable also ok to subprocess
         run: |
           ./print_var.sh
+
+      # https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
+      # - run: $FOO & ${{ env.FOO }}
+      # - other key: only ${{ env.FOO }}
+      # If you use the workflow file's run key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the env context to read environment variables; this is because workflow keys (such as if) require the variable to be substituted during workflow processing before it is sent to the runner.
