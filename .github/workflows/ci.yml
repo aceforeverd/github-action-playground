@@ -157,5 +157,4 @@ jobs:
 
       - name: env variable is not exported to subprocess
         run: |
-          bash -c "echo $FOO" # will not print bar
-          bash -c "echo ${{ env.FOO }}" # print bar
+          ./print_var.sh
