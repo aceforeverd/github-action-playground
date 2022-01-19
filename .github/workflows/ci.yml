@@ -131,3 +131,15 @@ jobs:
         if: steps.failed1.outcome != 'success' || steps.failed2.outcome != 'success'
         run: |
           echo "wow~"
+
+  env-variables:
+    runs-on: ubuntu-latest
+    env:
+      FOO: bar
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: print variable
+        run: |
+          echo "$FOO"
+          echo ${{ env.FOO }}
