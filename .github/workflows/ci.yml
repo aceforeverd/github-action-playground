@@ -143,3 +143,12 @@ jobs:
         run: |
           echo "$FOO"
           echo ${{ env.FOO }}
+
+      - name: new env
+        run: |
+          echo "BAR=bes" >> $GITHUB_ENV
+
+      - name: print new env
+        run: |
+          echo "$BAR"
+          echo ${{ env.BAR }}
