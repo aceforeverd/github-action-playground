@@ -3,3 +3,5 @@
 
 echo "FOO=$FOO"
 echo "BAR=$BAR"
+
+env
