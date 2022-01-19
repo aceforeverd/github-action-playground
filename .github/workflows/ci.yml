@@ -140,6 +140,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: print variable
+        # FOO or ${{ env.FOO }} both fine
         run: |
           echo "$FOO"
           echo ${{ env.FOO }}
@@ -148,7 +149,13 @@ jobs:
         run: |
           echo "BAR=bes" >> $GITHUB_ENV
 
+      # new env variable is accessible in next step
       - name: print new env
         run: |
           echo "$BAR"
           echo ${{ env.BAR }}
+
+      - name: env variable is not exported to subprocess
+        run: |
+          bash -c "echo $FOO" # will not print bar
+          bash -c "echo ${{ env.FOO }}" # print bar
