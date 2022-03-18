@@ -38,17 +38,6 @@ jobs:
           reporter: github-pr-review
           flags: --linelength=80
 
-  detect-secrets:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: detect-secrets
-        uses: reviewdog/action-detect-secrets@master
-        with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review # Change reporter.
-
   markdownlint:
     runs-on: ubuntu-latest
     steps:
@@ -163,3 +152,12 @@ jobs:
       # - run: $FOO & ${{ env.FOO }}
       # - other key: only ${{ env.FOO }}
       # If you use the workflow file's run key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the env context to read environment variables; this is because workflow keys (such as if) require the variable to be substituted during workflow processing before it is sent to the runner.
+
+  macos-job:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: |
+          make all
+
