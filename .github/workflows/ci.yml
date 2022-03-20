@@ -91,9 +91,6 @@ jobs:
           images: |
             name/app
             ghcr.io/username/app
-          # generate Docker tags based on the following events/attributes
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
-            type=sha
