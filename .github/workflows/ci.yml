@@ -95,5 +95,3 @@ jobs:
             type=match,pattern=docker-(.*),group=1
             type=match,pattern=docker-(\d.\d),group=1
             type=ref,event=branch
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
