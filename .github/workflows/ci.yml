@@ -91,7 +91,9 @@ jobs:
           images: |
             name/app
             ghcr.io/username/app
+          flavor:
+            latest=auto
           tags: |
             type=match,pattern=docker-(.*),group=1
             type=match,pattern=docker-(\d.\d),group=1
-            type=ref,event=branch
+            type=ref,event=pr
