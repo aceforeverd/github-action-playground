@@ -94,7 +94,7 @@ jobs:
             name/app
             ghcr.io/username/app
           flavor:
-            latest=auto
+            latest=false
           # tagging ruels, means respectively:
           # 1. tag docker-0.4.1 -> 0.4.1
           # 2. tag docker-0.4.1 -> 0.4
