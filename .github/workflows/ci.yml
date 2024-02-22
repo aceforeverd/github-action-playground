@@ -74,7 +74,11 @@ jobs:
       # If you use the workflow file's run key to read environment variables from within the runner operating system (as shown in the example above), the variable is substituted in the runner operating system after the job is sent to the runner. For other parts of a workflow file, you must use the env context to read environment variables; this is because workflow keys (such as if) require the variable to be substituted during workflow processing before it is sent to the runner.
 
   macos-job:
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ 'macOS-latest', 'macos-11', 'macos-12' ]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v2
 
@@ -82,8 +86,10 @@ jobs:
           python -V
           python3 -V
 
-      - run: |
-          make all
+      - name: verbose llvm & z3
+        run: |
+          ls -al /usr/local/lib/libz*
+
 
   metadata:
     runs-on: macos-latest
