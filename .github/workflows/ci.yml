@@ -89,6 +89,8 @@ jobs:
       - name: verbose llvm & z3
         run: |
           ls -al /usr/local/lib/libz*
+          brew info llvm
+          brew info z3
 
 
   metadata:
