@@ -86,6 +86,17 @@ jobs:
           python -V
           python3 -V
 
+      - name: bash glob expansion
+        run: |
+          echo README.*
+          file=$(echo README.*)
+          echo $file
+          set +f
+          file=$(echo README.*)
+          echo $file
+          file2=README.*
+          echo $file2
+
       - name: verbose llvm & z3
         run: |
           ls -al /usr/local/lib/libz*
